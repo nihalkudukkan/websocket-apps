@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="application/javascript">
+      // Polyfill for 'global' in browser environments
+      // Some libraries expect 'global' to be defined, but it's a Node.js concept.
+      // In browsers, 'window' or 'globalThis' serve a similar purpose.
+      if (typeof global === 'undefined') {
+        window.global = window;
+      }
+      // Alternatively, using globalThis which is standard across environments:
+      // window.global = globalThis;
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
