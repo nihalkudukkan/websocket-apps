@@ -10,6 +10,11 @@ export default function Author() {
         content: ''
     });
 
+    const [lmessages, setLMessages] = React.useState({
+        sender: '',
+        content: ''
+    });
+
     useEffect(()=>{
         const socketUrl = "http://localhost:8080/ws"
 
@@ -73,13 +78,33 @@ export default function Author() {
             sender: '',
             content: ''
         })
+    }
+
+    const sendlMessage = e => {
+        e.preventDefault();
+        if (lmessages.content.trim() === '' || lmessages.sender.trim() === '') {
+            console.warn('Message content and sender cannot be empty.');
+            return;
+        }
+        console.log('Sending message:', messages);
         
+        stompClientRef.current.publish({
+            destination: "/public/addtolist",
+            headers: {'content-type': 'application/json' },
+            body: JSON.stringify(lmessages)
+        })
+        
+        setLMessages({
+            sender: '',
+            content: ''
+        })
     }
   return (
     <>
       <div>
-        <form onSubmit={sendMessage}>
-            <h2>Author</h2>
+        <h2>Author</h2>
+        <form onSubmit={sendMessage} style={{border: '1px solid black', padding: '10px'}}>
+          <div>Simple message</div>
           <div>
             <label htmlFor="sender">Sender</label>
             <input type="text" id="sender" name="sender" value={messages.sender} onChange={e=>setMessages({...messages, sender: e.target.value})}/>
@@ -87,6 +112,20 @@ export default function Author() {
           <div>
             <label htmlFor="content">content</label>
             <input type="text" id='content' name='content' value={messages.content} onChange={e=>setMessages({...messages, content: e.target.value})}/>
+          </div>
+          <div>
+            <input type="submit" value="Send" />
+          </div>
+        </form>
+        <form onSubmit={sendlMessage} style={{border: '1px solid black', padding: '10px', marginTop: '10px'}}>
+          <div>List message message</div>
+          <div>
+            <label htmlFor="sender">Sender</label>
+            <input type="text" id="sender" name="sender" value={lmessages.sender} onChange={e=>setLMessages({...lmessages, sender: e.target.value})}/>
+          </div>
+          <div>
+            <label htmlFor="content">content</label>
+            <input type="text" id='content' name='content' value={lmessages.content} onChange={e=>setLMessages({...lmessages, content: e.target.value})}/>
           </div>
           <div>
             <input type="submit" value="Send" />
