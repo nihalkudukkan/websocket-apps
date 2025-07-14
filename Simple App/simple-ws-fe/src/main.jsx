@@ -8,6 +8,8 @@ import {
 import Home from './Home.jsx';
 import Author from './components/broadcast/Author.jsx';
 import Subscriber from './components/broadcast/Subscriber.jsx';
+import ChatHome from './components/Chat/ChatHome.jsx';
+import ChatUser from './components/Chat/ChatUser.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
   {
     path: "/broadcast/subscriber",
     element: <Subscriber />,
+  },
+  {
+    path: "/chathome",
+    element: <ChatHome />
+  },
+  {
+    path: "/chat/:username",
+    element: <ChatUser />
   }
 ]);
 

@@ -1,4 +1,4 @@
-package com.example.websocket_be;
+package com.example.websocket_be.service;
 
 import com.example.websocket_be.model.Message;
 import org.springframework.stereotype.Service;

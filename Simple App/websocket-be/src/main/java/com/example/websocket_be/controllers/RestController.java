@@ -1,6 +1,6 @@
 package com.example.websocket_be.controllers;
 
-import com.example.websocket_be.MessageService;
+import com.example.websocket_be.service.MessageService;
 import com.example.websocket_be.model.Message;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;

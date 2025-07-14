@@ -8,6 +8,9 @@ export default function Home() {
             <Link to={"/broadcast/author"}>Broadcast message author</Link>
             <Link to={"/broadcast/subscriber"}>Broadcast message subscriber</Link>
         </div>
+        <div>
+          <Link to={"/chathome"}>Chat app</Link>
+        </div>
     </div>
   )
 }

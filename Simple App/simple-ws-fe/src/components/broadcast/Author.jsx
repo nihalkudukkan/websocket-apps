@@ -51,7 +51,7 @@ export default function Author() {
         client.activate()
         stompClientRef.current = client
 
-        client.publish
+        // client.publish
 
         return () => {
             if (stompClientRef.current && stompClientRef.current.connected) {
