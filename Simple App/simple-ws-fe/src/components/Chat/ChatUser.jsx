@@ -64,14 +64,14 @@ export default function ChatUser() {
     }
 
     return (
-        <div>
+        <div className='mx-auto w-sm md:w-md lg:w-lg p-2 border-2 border-black rounded-md'>
             <h2>ChatUser</h2>
             <div>
                 <h3>Users available to chat</h3>
                 {
                     users.map((user, index) => (
-                        <div key={index}>
-                            <button onClick={()=>enableChatBox(user.username)}>{user.username}</button>
+                        <div key={index} className='m-3'>
+                            <button className='bg-green-700 p-2 rounded-sm text-white cursor-pointer' onClick={()=>enableChatBox(user.username)}>{user.username}</button>
                         </div>
                     ))
                 }

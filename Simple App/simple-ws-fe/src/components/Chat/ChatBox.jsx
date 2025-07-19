@@ -77,8 +77,11 @@ export default function ({sender, receiver, stompClientRef}) {
         <p>Receiver: {receiver}</p>
         <div>
             {chats.map((item, index) => (
-                <div key={index}>
-                    <p>{item.sender.username}: {item.content}</p>
+                <div key={index} className={`flex ${item.sender.username===sender? 'justify-end' : 'justify-start'}`}>
+                    <div className='bg-green-500 rounded-sm p-2 my-1'>
+                        <p className='text-blue-800'>{item.sender.username}</p>
+                        <p className='text-xl'>{item.content}</p>
+                    </div>
                 </div>
             ))}
         </div>
@@ -88,10 +91,10 @@ export default function ({sender, receiver, stompClientRef}) {
         {
             isChatroomEnabled ? (
                 <form onSubmit={handleChatSubmit}>
-                    <input type="text" name="content" id="content" value={content} onChange={e=>setContent(e.target.value)} />
-                    <input type="submit" value="Send" />
+                    <input className='border-2 p-2 mr-1' type="text" name="content" id="content" value={content} onChange={e=>setContent(e.target.value)} />
+                    <input className='cursor-pointer bg-slate-600 text-white p-2 rounded-sm'  type="submit" value="Send" />
                 </form>) :
-                <button onClick={() => handleCreateChatRoom()}>Start Chat</button>
+                <button className='cursor-pointer bg-slate-600 text-white p-2 rounded-sm' onClick={() => handleCreateChatRoom()}>Start Chat</button>
         }
     </div>
   )

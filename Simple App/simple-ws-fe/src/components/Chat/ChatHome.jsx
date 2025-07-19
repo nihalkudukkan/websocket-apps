@@ -73,22 +73,22 @@ export default function ChatHome() {
         }
     }, [])
   return (
-    <div>
+    <div className='mx-auto w-sm md:w-md lg:w-lg p-2 border-2 border-black rounded-md'>
         <h2>ChatHome</h2>
         <div>
             <h3>Available users</h3>
             <div>
                 {users.map((user, index) => (
-                    <div key={index}>
-                        <Link to={`/chat/${user.username}`}>{user.username}</Link>
+                    <div key={index} className='m-3'>
+                        <Link className='bg-green-700 p-2 rounded-sm text-white' to={`/chat/${user.username}`}>{user.username}</Link>
                     </div>
                 ))}
             </div>
             <div>
                 <h3>Add user</h3>
-                <form onSubmit={handleAddUser}>
-                    <input type="text" placeholder="Username" value={newUser.username} onChange={(e)=>setNewUser({username:e.target.value})} />
-                    <button type="submit">Add User</button>
+                <form onSubmit={handleAddUser} className='m-2'>
+                    <input className='border-2 p-2 mr-1' type="text" placeholder="Username" value={newUser.username} onChange={(e)=>setNewUser({username:e.target.value})} />
+                    <button className='cursor-pointer bg-slate-600 text-white p-2 rounded-sm' type="submit">Add User</button>
                 </form>
             </div>
         </div>
