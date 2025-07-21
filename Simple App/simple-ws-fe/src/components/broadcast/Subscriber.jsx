@@ -79,23 +79,25 @@ export default function Subscriber() {
   return (
     <div>
         <h2>Subscriber</h2>
-        <div>
+        <div className='border-2 p-2 mb-4'>
             <h3>Simple message</h3>
             <div>
                 <p>Sender: {message.sender}</p>
                 <p>Content: {message.content}</p>
             </div>
         </div>
-        <div>
+        <div className='border-2 p-2 mb-4'>
             <h2>List message</h2>
+            <div className='flex flex-col gap-2'>
             {
                 lmessages.map((msg, index) => (
-                    <div key={index}>
+                    <div className='border-2 p-1 w-xl' key={index}>
                         <p>Sender: {msg.sender}</p>
                         <p>Content: {msg.content}</p>
                     </div>
                 ))
             }
+            </div>
         </div>
     </div>
   )

@@ -104,31 +104,31 @@ export default function Author() {
       <div>
         <h2>Author</h2>
         <form onSubmit={sendMessage} style={{border: '1px solid black', padding: '10px'}}>
-          <div>Simple message</div>
+          <h3>Simple message</h3>
           <div>
             <label htmlFor="sender">Sender</label>
-            <input type="text" id="sender" name="sender" value={messages.sender} onChange={e=>setMessages({...messages, sender: e.target.value})}/>
+            <input className='border-2 p-2 mr-1' type="text" id="sender" name="sender" value={messages.sender} onChange={e=>setMessages({...messages, sender: e.target.value})}/>
           </div>
-          <div>
+          <div className='my-2'>
             <label htmlFor="content">content</label>
-            <input type="text" id='content' name='content' value={messages.content} onChange={e=>setMessages({...messages, content: e.target.value})}/>
+            <input className='border-2 p-2 mr-1' type="text" id='content' name='content' value={messages.content} onChange={e=>setMessages({...messages, content: e.target.value})}/>
           </div>
           <div>
-            <input type="submit" value="Send" />
+            <input className='cursor-pointer bg-slate-600 text-white p-2 rounded-sm' type="submit" value="Send" />
           </div>
         </form>
         <form onSubmit={sendlMessage} style={{border: '1px solid black', padding: '10px', marginTop: '10px'}}>
-          <div>List message message</div>
+          <h3>List message message</h3>
           <div>
             <label htmlFor="sender">Sender</label>
-            <input type="text" id="sender" name="sender" value={lmessages.sender} onChange={e=>setLMessages({...lmessages, sender: e.target.value})}/>
+            <input className='border-2 p-2 mr-1' type="text" id="sender" name="sender" value={lmessages.sender} onChange={e=>setLMessages({...lmessages, sender: e.target.value})}/>
           </div>
           <div>
             <label htmlFor="content">content</label>
-            <input type="text" id='content' name='content' value={lmessages.content} onChange={e=>setLMessages({...lmessages, content: e.target.value})}/>
+            <input className='border-2 p-2 mr-1' type="text" id='content' name='content' value={lmessages.content} onChange={e=>setLMessages({...lmessages, content: e.target.value})}/>
           </div>
           <div>
-            <input type="submit" value="Send" />
+            <input className='cursor-pointer bg-slate-600 text-white p-2 rounded-sm' type="submit" value="Send" />
           </div>
         </form>
       </div>
